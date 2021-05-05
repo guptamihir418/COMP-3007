@@ -1,0 +1,12 @@
+(define (split Predicate List)
+(define (utilOne Predicate List)
+(cond
+((eq? 0 (length List)) List)
+((not (Predicate (car List))) (cons (car List) (utilOne Predicate (cdr List)))) (else (utilOne Predicate (cdr List)))
+))
+(define (utilTwo Predicate List)
+(cond
+((eq? 0 (length List)) List)
+((Predicate (car List)) (cons (car List) (utilTwo Predicate (cdr List)))) (else (utilTwo Predicate (cdr List)))
+))
+(cons (utilTwo Predicate List) (utilOne Predicate List)))

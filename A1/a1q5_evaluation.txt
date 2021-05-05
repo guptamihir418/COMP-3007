@@ -1,0 +1,63 @@
+; MIHIR GUPTA 101172281
+; Question 5
+
+
+(define (test x y)
+  (if (= x 0)
+      x
+      y))
+
+(test 0 (/ 4 0))
+
+
+; A
+
+      In the applicative-order evaluation, it will first simplify the function's arguments like in this
+      question given above when (test 0 (/ 4 0)), it will try to simplify function argument which is
+      (/ 4 0) and interpreter will return "division by zero" error and hence it will never procced
+      to the next step as it will crash here.
+
+
+ ; B
+
+      In the normal-order evaluation, it will not simplify until its necessary and will take the
+      the function's body and substitute the arguments as it is without actually solving it. So,
+      what will happen here is mentioned in steps below:
+
+      (test 0 (/ 4 0))
+      (if (= 0 0)
+          0
+          (/ 4 0))
+
+      and now value of x is 0 which when compared in if statement it will return true and hence "x"
+      will be return whose actual value is 0 and hence no errors are seen in this type of substitution
+      model like seen in applicative-order.
+
+; C
+
+(define (foo a b)
+  ((cond ((> b 0) +) ((= b 0) *) (else /)) a b))
+
+
+-> Let "a" and "b" be any integers
+-> (foo a b)
+-> ((cond ((> b 0) +) 
+          (= b 0) *) 
+          (else /)) a b))
+
+-> Here are three conditions, which return three different values i.e. +, * and /
+-> The first condition is if value of b is greater than 0, then it will return (+ a b) -> (a + b)
+-> The second condition is if value of b is equal 0, then it will return (* a b) -> a * b
+-> The last condition is if the value of b is anything other than greater than 0 or equal to 0 it will return (/ a b) -> a/b)
+
+Testing cases:
+
+-> (foo 3 1)
+-> a = 3, b = 1; as b > 0, it will return the first condition which is (+ a b) -> (a + b) -> (3 +1) -> 4
+
+-> (foo 3 0)
+-> a = 3, b = 0; as b = 0, it will return the second condition which is (* a b) -> (a * b) -> (3 * 0) -> 0
+
+-> (foo 3 -1)
+-> a = 3, b = -1; as b < 0, it will return last condition which is (/ a b) -> (a/b) -> 3/-1 -> -3
+

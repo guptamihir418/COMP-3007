@@ -1,0 +1,68 @@
+Queries
+
+Ques 1
+?- ryan_details(Team,Position).
+Team = min,
+Position = rw
+
+Ques 2
+?- assists(Last_Name).
+Last_Name = driasaitl 
+
+Ques 3
+?- left_wing(Name).
+Name = alex ,
+Name = kevin ,
+Name = jake ,
+Name = jeff ,
+Name = johnny, 
+Name = mike 
+
+Ques 4
+?- teams(Team).
+Team = was ,
+Team = chi
+
+Ques 5
+?- play_same(Name1,Name2).
+Name1 = marcus,
+Name2 = jake ;
+Name1 = kevin,
+Name2 = ryan ;
+Name1 = ryan,
+Name2 = kevin ;
+Name1 = john,
+Name2 = morgan ;
+Name1 = steven,
+Name2 = nikita ;
+Name1 = nikita,
+Name2 = steven ;
+Name1 = alex,
+Name2 = patrick ;
+Name1 = jake,
+Name2 = marcus ;
+Name1 = mike,
+Name2 = aleksander ;
+Name1 = aleksander,
+Name2 = mike ;
+Name1 = morgan,
+Name2 = john ;
+Name1 = patrick,
+Name2 = alex 
+
+Ques 6
+?- points(Name).
+Name = steven ,
+Name = nathan ,
+Name = johnny ,
+Name = aleksander 
+
+Ques 7
+?- shot_accuracy(Accuracy).
+Accuracy = 0.022988505747126436 
+
+Ques 8
+?- accurate(FirstName,LastName,Accuracy).
+FirstName = leon,
+LastName = driasaitl,
+Accuracy = 0.21645021645021645

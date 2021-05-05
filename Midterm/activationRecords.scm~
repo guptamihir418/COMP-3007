@@ -1,0 +1,22 @@
+; Activation records
+
+; Static link point to where the function was defined
+; Dynamic links point to from which the  current function is caslled
+
+(define (one x)
+  (define (two y z)
+    (four (+ x (* 2 y) (* 3 z))))
+  (define (three)
+    (two (+ x 1) (* x 2)))
+  (define (four u)
+    (+ u 2))
+  (three))
+
+(one 5)
+
+; Static links
+
+; one -> global
+; two -> one
+; three -> one
+; four -> one

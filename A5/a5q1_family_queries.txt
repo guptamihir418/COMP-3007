@@ -1,0 +1,55 @@
+Queries
+
+Ques 1
+?- parent(raheem,X). 
+X = adam, 
+X = william, 
+X = pheobe 
+
+Ques 2
+?- has_sister(adam). 
+true 
+
+Ques 4
+?- has_brother(pheobe). 
+true 
+
+Ques 5
+?- cousin(william,X).
+X = charles
+
+Ques 6
+?- sibilings(adam,kane). 
+false.
+
+Ques 7
+?- grandfather(X,william). 
+X = sam ,
+X = kane
+
+Ques 8
+ ?- grandmother(caroline,X). 
+X = adam ,
+X = william ,
+X = pheobe ,
+X = charles
+
+Ques 9
+?- aunt(max,X). 
+false.
+
+Ques 10
+?- uncle(jason,X).
+X = adam ,
+X = william ,
+X = pheobe
+
+Ques 11
+?-ancestor(kane,X). 
+X = raheem ,
+X = jason ,
+X = monica ,
+X = adam ,
+X = william ,
+X = pheobe ,
+X = charles

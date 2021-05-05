@@ -1,0 +1,33 @@
+(define-syntax stream-cons
+(syntax-rules ()
+((stream-cons a b) (cons a (delay b)))))
+(define (stream-car str) (car str))
+(define (stream-cdr str) (force (cdr str)))
+
+
+; A.
+(define (list->stream Va1)
+(if (= 0 (length Va1)) '() (stream-cons (car Va1) (list->stream (cdr Va1)))))
+
+
+; B.
+(define (stream->list str nn) (if (null? str) (list )
+(if (or (eq? 0 nn) (equal? str (list ))) '() (cons (stream-car str) (stream->list (stream-cdr str) (- nn 1))))))
+
+
+; C.
+(define (helper1_factorials nn) (if (equal? 0 nn) 1 (* (helper1_factorials (- nn 1)) nn)))
+(define (helper2_factorials i) (stream-cons (helper1_factorials i) (helper2_factorials (+ i 1))))
+(define (factorials)  (helper2_factorials 0))
+
+
+; D.
+(define (prng V)  (define v11 (expt 2 32)) (define v12 22695477) (define (round_helper_function z nn) (let ((Val (expt 10 nn))) (/ (floor (+ (* z Val) 0.50)) Val)))
+(stream-cons (round_helper_function (exact->inexact (/ (modulo (+ (* v12 V) 1) v11) v11)) 5) (prng (* v11 (exact->inexact (/ (modulo (+ 1.0 (* v12 V)) v11) v11))))))
+
+
+; E.
+(define (random-int P Mini Maxi)
+(stream-cons (inexact->exact (floor (+ (* 10.0 (car P)) Mini))) (random-int (stream-cdr P) Mini Maxi)))
+
+  

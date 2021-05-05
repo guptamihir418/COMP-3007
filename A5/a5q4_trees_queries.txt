@@ -1,0 +1,29 @@
+Queries
+
+Ques 1
+?- list([1,2,3]).
+true
+
+Ques 2
+?- list(hello).
+false
+
+Ques 3
+?- treeFlat([1,[2,3],[[4,[5]],6]],[1,2,3,4,5,6]).
+true
+
+Ques 4
+?- treeFlat([1,[2,3],[[4,[5]],6]], L).
+L = [1, 2, 3, 4, 5, 6]
+
+Ques 5
+?- treeSum([[1,[2,3]],4,[5,6,[7]]], S).
+S = 28 
+
+Ques 6
+?- treeSmush([[a],[b],c,[d]], R).
+R = [[a, b], c, [d]] 
+
+Ques 7
+?- treeSmush([[1,2],[3],4,[5,[6],[7]],[[8],9]], R).
+R = [[1, 2, 3], 4, [5, [6, 7, 8], 9]]

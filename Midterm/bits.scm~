@@ -1,0 +1,10 @@
+(define (bits n)
+  (if (<= n 1)
+      1
+      (+ 1 (bits (quotient n 2)))))
+
+
+(bits 9)
+
+(define (bits-itr n)
+  (define iterator 
